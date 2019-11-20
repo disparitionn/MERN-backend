@@ -22,7 +22,3 @@ module.exports.house_update = (req, res) => {
         });
     });
 };
-
-House.findOneAndUpdate({id: "TEST_HOME2" }, {$set:{homeName: 'test'}},  function (err, house) {
-   console.log("!!!!!!!!!!!!!!!!!!", err, house);
-});
