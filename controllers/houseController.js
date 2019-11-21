@@ -11,14 +11,11 @@ module.exports.house_update = (req, res) => {
     if (!req.body) {
         return res.status(400).json({error: "Error"});
     }
-    const  params = req.body;
-    House.findOneAndUpdate({_id: "58873bae28f4bf912185591b" }, {$set:{homeName: 'test'}},  function (err, house) {
+
+    let id = !!req.body.id && req.body.id;
+    let newData = !!req.body.newName && req.body.newName;
+
+    House.findOneAndUpdate({id: id }, {$set:{homeName: newData}},  function (err, house) {
         if (err) throw err;
-
-        house.homeName = req.body.edit_house;
-
-        house.save(function (err) {
-            if (err) throw err;
-        });
     });
 };
